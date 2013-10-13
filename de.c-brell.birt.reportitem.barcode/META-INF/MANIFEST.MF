@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %plugin.name
+Bundle-SymbolicName: de.c-brell.birt.reportitem.barcode;singleton:=true
+Bundle-Version: 1.0.1.qualifier
+Bundle-ClassPath: .,
+ lib/core.jar,
+ lib/javase.jar
+Bundle-Vendor: Christian Brell
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.birt.report.model,
+ org.eclipse.birt.report.engine
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: com.ibm.icu.util,
+ org.eclipse.birt.data.engine.api
+Export-Package: de.cbrell.birt.reportitem.barcode,
+ de.cbrell.birt.reportitem.barcode.exception

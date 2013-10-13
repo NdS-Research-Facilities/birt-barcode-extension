@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.birt.report.model.reportItemModel">
+      <reportItem
+            class="de.cbrell.birt.reportitem.barcode.BarcodeItemFactory"
+            extensionName="BarcodeItem">
+         <property
+               allowExpression="true"
+               canInherit="false"
+               defaultDisplayName="Barcode Type"
+               hasOwnModel="false"
+               isEncryptable="false"
+               isList="false"
+               name="barcodeType"
+               subType="string"
+               type="string">
+         </property>
+         <property
+               allowExpression="true"
+               canInherit="false"
+               defaultDisplayName="Encoding"
+               hasOwnModel="false"
+               isEncryptable="false"
+               isList="false"
+               name="encoding"
+               type="string">
+         </property>
+         <property
+               allowExpression="true"
+               canInherit="false"
+               defaultDisplayName="Barcode Content"
+               hasOwnModel="false"
+               isEncryptable="false"
+               isList="false"
+               name="content"
+               type="string">
+         </property>
+         <overrideProperty
+               allowedUnits="in,cm,mm,pt,px,pc"
+               propertyName="width">
+         </overrideProperty>
+         <overrideProperty
+               allowedUnits="in,cm,mm,pt,px,pc"
+               propertyName="height">
+         </overrideProperty>
+      </reportItem>
+   </extension>
+   <extension
+         point="org.eclipse.birt.report.engine.reportitemPresentation">
+      <reportItem
+            class="de.cbrell.birt.reportitem.barcode.BarcodePresentationImpl"
+            name="BarcodeItem"
+            supportedFormats="png">
+      </reportItem>
+   </extension>
+
+
+</plugin>
