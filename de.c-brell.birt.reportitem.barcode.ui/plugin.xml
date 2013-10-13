@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.birt.report.designer.ui.reportitemUI">
+      <model
+            extensionName="BarcodeItem">
+      </model>
+      <palette
+            icon="icons/barcode.png">
+      </palette>
+      <editor
+            canResize="true"
+            showInDesigner="true"
+            showInMasterPage="true">
+      </editor>
+      <outline
+            icon="icons/barcode.png">
+      </outline>
+      <reportItemFigureUI
+            class="de.cbrell.birt.reportitem.barcode.ui.BarcodeFigureUI">
+      </reportItemFigureUI>
+      <builder
+            class="de.cbrell.birt.reportitem.barcode.ui.BarcodeBuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.birt.report.designer.ui.elementAdapters">
+      <adaptable
+            class="org.eclipse.birt.report.model.api.ExtendedItemHandle">
+         <adapter
+               factory="de.cbrell.birt.reportitem.barcode.ui.views.BarcodePageGeneratorFactory"
+               id="ReportDesign.AttributeView.BarcodePageGenerator"
+               singleton="false"
+               type="org.eclipse.birt.report.designer.ui.views.IPageGenerator">
+         </adapter>
+      </adaptable>
+   </extension>
+
+</plugin>
