@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.cbrell.birt.reportitem.barcode.feature_1.0.1.qualifier.jar" id="de.cbrell.birt.reportitem.barcode.feature" version="1.0.1.qualifier">
+      <category name="de.c-brell.birt.reportitem.barcode.category"/>
+   </feature>
+   <category-def name="de.c-brell.birt.reportitem.barcode.category" label="BIRT Barcode Extension"/>
+</site>
