@@ -1,0 +1,1 @@
+This project provides a barcode palette item for BIRT based on ZXing project
