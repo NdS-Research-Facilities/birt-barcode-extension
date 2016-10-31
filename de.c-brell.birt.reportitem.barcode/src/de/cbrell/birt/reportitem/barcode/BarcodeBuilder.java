@@ -60,8 +60,10 @@ public class BarcodeBuilder {
 			
             BitMatrix bitMatrix = barcodeWriter.encode(encodedText, barcodeFormat, width, height, hintMap);
             BufferedImage img = MatrixToImageWriter.toBufferedImage(bitMatrix);
-           
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            img=rotate(img,90);
+			
+			
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();		
 			ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
 			
 			ImageIO.write(img, "png", ios);
@@ -99,6 +101,35 @@ public class BarcodeBuilder {
 //		ImageData imageData = new ImageData(new ByteArrayInputStream(imageBytes));
 //		return new Image(Display.getDefault(), imageData);
 	}
+	
+	/**
+ * Rotates an image. Actually rotates a new copy of the image.
+ * 
+ * @param img The image to be rotated
+ * @param angle The angle in degrees
+ * @return The rotated image
+ */
+public static Image rotate(Image img, double angle)
+{
+    double sin = Math.abs(Math.sin(Math.toRadians(angle))),
+           cos = Math.abs(Math.cos(Math.toRadians(angle)));
+
+    int w = img.getWidth(null), h = img.getHeight(null);
+
+    int neww = (int) Math.floor(w*cos + h*sin),
+        newh = (int) Math.floor(h*cos + w*sin);
+
+    BufferedImage bimg = toBufferedImage(getEmptyImage(neww, newh));
+    Graphics2D g = bimg.createGraphics();
+
+    g.translate((neww-w)/2, (newh-h)/2);
+    g.rotate(Math.toRadians(angle), w/2, h/2);
+    g.drawRenderedImage(toBufferedImage(img), null);
+    g.dispose();
+
+    return toImage(bimg);
+}
+	
 	
 	
 }
